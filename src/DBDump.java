@@ -8,7 +8,7 @@ import org.xmldb.api.modules.XPathQueryService;
 
 public class DBDump {
     protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
-    protected static String URI = "xmldb:exist://13.70.19.195:8080/exist/xmlrpc";
+    protected static String URI = "xmldb:exist://192.168.10.130:8080/exist/xmlrpc";
     protected static String collectionPath = "/db/vulnapp/";
     protected static String resourceName = "user.xml";
     public static Collection col = null;
@@ -63,7 +63,7 @@ public class DBDump {
 
         // query a document
         String xQuery = "doc(\"user.xml\")/userlist/user[uname=\""+username+"\" and password=\""+password+"\"]";
-        //System.out.println("Execute xQuery = " + xQuery);
+        //System.out.println(xQuery);
 
         XPathQueryService xpqs = (XPathQueryService)col.getService("XPathQueryService", "3.0");
         xpqs.setProperty("indent", "yes");

